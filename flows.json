@@ -1,0 +1,219 @@
+[
+    {
+        "id": "bd1da11e7126433c",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f4988f566b849c77",
+        "type": "http in",
+        "z": "bd1da11e7126433c",
+        "name": "",
+        "url": "leitura",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 250,
+        "y": 80,
+        "wires": [
+            [
+                "682f66cfbcc8dad6",
+                "ad48d0386f038f76"
+            ]
+        ]
+    },
+    {
+        "id": "f10f3ca069edcf88",
+        "type": "http in",
+        "z": "bd1da11e7126433c",
+        "name": "",
+        "url": "salvar",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 320,
+        "wires": [
+            [
+                "4e1cb51885866a17"
+            ]
+        ]
+    },
+    {
+        "id": "870b2e0a51a341e9",
+        "type": "http in",
+        "z": "bd1da11e7126433c",
+        "name": "",
+        "url": "deletar",
+        "method": "delete",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 240,
+        "y": 460,
+        "wires": [
+            [
+                "52e669d8bc45c9a0"
+            ]
+        ]
+    },
+    {
+        "id": "682f66cfbcc8dad6",
+        "type": "debug",
+        "z": "bd1da11e7126433c",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ad48d0386f038f76",
+        "type": "cloudantplus in",
+        "z": "bd1da11e7126433c",
+        "name": "",
+        "cloudant": "fcc57dd7289aa4a6",
+        "database": "otaviomazzutti6",
+        "service": "_ext_",
+        "search": "_all_",
+        "design": "",
+        "index": "",
+        "x": 580,
+        "y": 60,
+        "wires": [
+            [
+                "e172886c0741ccf3"
+            ]
+        ]
+    },
+    {
+        "id": "4e1cb51885866a17",
+        "type": "cloudantplus out",
+        "z": "bd1da11e7126433c",
+        "name": "",
+        "cloudant": "fcc57dd7289aa4a6",
+        "database": "otaviomazzutti6",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 580,
+        "y": 320,
+        "wires": [
+            [
+                "3e55b51a3750dcfa"
+            ]
+        ]
+    },
+    {
+        "id": "52e669d8bc45c9a0",
+        "type": "cloudantplus out",
+        "z": "bd1da11e7126433c",
+        "name": "",
+        "cloudant": "fcc57dd7289aa4a6",
+        "database": "otaviomazzutti6",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "delete",
+        "x": 520,
+        "y": 460,
+        "wires": [
+            [
+                "b73b5e853f2f498b"
+            ]
+        ]
+    },
+    {
+        "id": "e172886c0741ccf3",
+        "type": "http response",
+        "z": "bd1da11e7126433c",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 790,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "3e55b51a3750dcfa",
+        "type": "http response",
+        "z": "bd1da11e7126433c",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 750,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "b73b5e853f2f498b",
+        "type": "http response",
+        "z": "bd1da11e7126433c",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 750,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "715ca8fb6c41eb6f",
+        "type": "http in",
+        "z": "bd1da11e7126433c",
+        "name": "",
+        "url": "update",
+        "method": "put",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 230,
+        "y": 560,
+        "wires": [
+            [
+                "b65fa9ef82f7b9d1"
+            ]
+        ]
+    },
+    {
+        "id": "b65fa9ef82f7b9d1",
+        "type": "cloudantplus out",
+        "z": "bd1da11e7126433c",
+        "name": "",
+        "cloudant": "fcc57dd7289aa4a6",
+        "database": "otaviomazzutti6",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 540,
+        "y": 560,
+        "wires": [
+            [
+                "7a651669641644c0"
+            ]
+        ]
+    },
+    {
+        "id": "7a651669641644c0",
+        "type": "http response",
+        "z": "bd1da11e7126433c",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 710,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "fcc57dd7289aa4a6",
+        "type": "cloudantplus",
+        "host": "https://f1c0dcf9-5075-4061-a1f8-2f4ca596058a-bluemix.cloudantnosqldb.appdomain.cloud",
+        "name": "",
+        "useapikey": true
+    }
+]
